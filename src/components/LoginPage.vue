@@ -43,10 +43,6 @@
             <v-flex xs-6 offset-xs4>
               <v-card-actions>
                 <v-btn class="btn1" color="success" @click="onLogin">Login</v-btn>
-              <!-- </v-card-actions> -->
-            <!-- </v-flex>
-            <v-flex align-center justify-center> -->
-              <!-- <v-card-actions> -->
                 <v-btn class="btn2" color="error" @click="onCancel">Cancel</v-btn>
               </v-card-actions>
             </v-flex>
@@ -64,34 +60,28 @@ export default {
       username: "",
       password: "",
       user: [],
-      checkbox: false
+      checkbox: false,
+      flag:false
     };
   },
-  // computed:{
-  //   userLogin() {
-  //     return this.$store.getters.userLogin;
-  //   }
-  // },
+  computed:{
+    userLogin() {
+      return this.$store.getters.userLogin;
+    }
+  },
   methods: {
     usernameRules() {
       return [
-        v => !!v || "E-mail is required",
-        // v =>
-        //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-        //   "E-mail must be valid"
+        v => !!v || "E-mail is required"
       ];
     },
     passwordRules() {
       return [
-        v => !!v || "Password is required",
-        // v =>
-        //   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/.test(
-        //     v
-        //   ) || "Password must be valid"
+        v => !!v || "Password is required"
       ];
     },
     onLogin() {
-      this.$store.dispatch("onLogin","/static/Users.json")
+      this.$store.dispatch("onLogin","./static/Users.json")
       .then(response => {
         response.data.user.forEach(element => {
           if (
@@ -99,8 +89,6 @@ export default {
             element.password === this.password
           ) {
             this.flag = true;
-            this.userType = element.type;
-            // this.$emit("logIn", true);
             this.$router.push('/UserHome');
           }
         });
