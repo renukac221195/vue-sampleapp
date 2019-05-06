@@ -26,8 +26,8 @@
             ]
         },
         {
-            "name": "elon",
-            "lastName": "musk",
+            "name": "Elon",
+            "lastName": "Musk",
             "dp": "..assets/images/elon.jpeg",
             "userId": "elon.musk",
             "password": "12345",

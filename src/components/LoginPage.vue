@@ -61,12 +61,26 @@ export default {
       password: "",
       user: [],
       checkbox: false,
-      flag:false
+      flag: false
     };
+  },
+  created() {
+      this.$store
+        .dispatch("goToFeeds", "./static/Users.json")
+        .then(response => {
+          response.data.feeds.forEach(element => {
+            if (element.type === this.type) {
+              this.$router.push("/UserHome");
+            }
+          });
+        });
   },
   computed:{
     userLogin() {
       return this.$store.getters.userLogin;
+    },
+    allUserFeeds() {
+      return this.$store.getters.allUserFeeds;
     }
   },
   methods: {
