@@ -1,10 +1,9 @@
 <template>
   <v-layout>
     <v-toolbar dark color="grey darken-4">
-      <v-toolbar-title v-if="!flag">Welcome</v-toolbar-title>
+      <v-toolbar-title>Welcome</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
-        v-if="flag"
         v-model="search"
         append-icon="search"
         label="Search"
@@ -18,12 +17,13 @@
         icon="warning"
       >Your search for "{{ search }}" found no results.</v-alert>
       <v-spacer></v-spacer>
-      <v-avatar v-if="flag" size="36px">
-        <img src="../assets/images/marissa.jpeg" alt>
-      </v-avatar>
       <v-toolbar-items>
+        <v-avatar v-for="user in userLogin" :key="user.id" size="36px">
+          <img :src="user.dp" :alt="user.name">
+        </v-avatar>
+
         <!-- <v-router-link to="/UserHome" @click="goTo('/UserHome')">Username</v-router-link> -->
-        <v-btn v-if="flag" flat @click="onLogout">Logout</v-btn>
+        <v-btn flat @click="onLogout">Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </v-layout>
@@ -38,11 +38,16 @@ export default {
       flag: false
     };
   },
+  computed: {
+    userLogin() {
+      return this.$store.getters.userLogin;
+    }
+  },
   methods: {
     onLogout() {
       this.$router.push("/");
       this.flag = false;
-    },
+    }
     // goTo(path) {
     //   this.$router.push(path);
     // }

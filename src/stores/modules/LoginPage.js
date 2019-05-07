@@ -20,13 +20,15 @@ export const loadUser = {
                 callService(url)
                     .then((response) => {
                         resolve(response);
-                        context.commit('onLogin', response);
+                        context.commit('onLogin', response.data.user);
                     })
             })
         }
     },
     mutations: {
         onLogin: (state, response) => {
+            console.log(response);
+            
             state.user = response;
         }
     }

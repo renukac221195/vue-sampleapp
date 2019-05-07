@@ -11,7 +11,9 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      flag:false
+    }
   }
 };
 </script>

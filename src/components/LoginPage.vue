@@ -1,5 +1,5 @@
 <template>
-  <v-layout align-center justify-center>
+  <v-layout class="container" align-center justify-center>
     <v-flex xs12 sm8 md4>
       <v-card dark color="blue-grey ">
         <v-spacer></v-spacer>
@@ -33,10 +33,7 @@
           </v-layout>
           <v-layout>
             <v-flex>
-              <v-checkbox
-                v-model="checkbox"
-                label="Remember me"
-              ></v-checkbox>
+              <v-checkbox v-model="checkbox" label="Remember me"></v-checkbox>
             </v-flex>
           </v-layout>
           <v-layout align-center justify-center>
@@ -64,18 +61,7 @@ export default {
       flag: false
     };
   },
-  created() {
-      this.$store
-        .dispatch("goToFeeds", "./static/Users.json")
-        .then(response => {
-          response.data.feeds.forEach(element => {
-            if (element.type === this.type) {
-              this.$router.push("/UserHome");
-            }
-          });
-        });
-  },
-  computed:{
+  computed: {
     userLogin() {
       return this.$store.getters.userLogin;
     },
@@ -85,25 +71,20 @@ export default {
   },
   methods: {
     usernameRules() {
-      return [
-        v => !!v || "E-mail is required"
-      ];
+      return [v => !!v || "E-mail is required"];
     },
     passwordRules() {
-      return [
-        v => !!v || "Password is required"
-      ];
+      return [v => !!v || "Password is required"];
     },
     onLogin() {
-      this.$store.dispatch("onLogin","./static/Users.json")
-      .then(response => {
+      this.$store.dispatch("onLogin", "./static/Users.json").then(response => {
         response.data.user.forEach(element => {
           if (
             element.userId === this.username &&
             element.password === this.password
           ) {
             this.flag = true;
-            this.$router.push('/UserHome');
+            this.$router.push("/UserHome");
           }
         });
         if (this.flag == false) {
@@ -123,6 +104,10 @@ export default {
   font-family: "Cute Font", cursive;
   font-weight: bold;
   text-align: center;
+}
+.container {
+  margin-top: 125px;
+  
 }
 
 </style>

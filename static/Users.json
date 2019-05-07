@@ -3,19 +3,20 @@
         {
             "name": "Marissa",
             "lastName": "Mayer",
-            "dp": "..assets/images/marissa.jpeg",
+            "dp": "static/images/marissa.jpeg",
             "userId": "marissa.mayer",
             "password": "12345",
 			"id": 1,
             "followedUsers": [
                 "natgeo",
                 "tripoto"
-            ]
+            ],
+            "key": "image"
         },
         {
             "name": "Eric",
             "lastName": "Schmidt",
-            "dp": "..assets/images/eric.jpeg",
+            "dp": "static/images/eric.jpeg",
             "userId": "eric.schmidt",
             "password": "12345",
 			"id": 2,
@@ -23,61 +24,21 @@
                 "natgeo",
                 "tripoto",
                 "younews"
-            ]
+            ],
+            "key": "image"
         },
         {
             "name": "Elon",
             "lastName": "Musk",
-            "dp": "..assets/images/elon.jpeg",
+            "dp": "static/images/elon.jpeg",
             "userId": "elon.musk",
             "password": "12345",
 			"id": 3,
             "followedUsers": [
                 "yourstory",
                 "younews"
-            ]
-        },
-        {
-            "name": "Your Story",
-            "lastName": "",
-            "dp": "..assets/images/yourstory.jpeg",
-            "userId": "yourstory",
-            "password": "12345",
-			"id": 4,
-            "followedUsers": ["yourstory"]
-        },
-        {
-            "name": "National Geopraphic",
-            "lastName": "",
-            "dp": "..assets/images/natgeo.jpeg",
-            "userId": "natgeo",
-            "password": "12345",
-			"id": 5,
-            "followedUsers": [
-                "natgeo"
-            ]
-        },
-        {
-            "name": "Tripoto",
-            "lastName": "",
-            "dp": "..assets/images/tripoto.jpeg",
-            "userId": "tripoto",
-            "password": "12345",
-			"id": 6,
-            "followedUsers": [
-                "tripoto"
-            ]
-        },
-        {
-            "name": "You News",
-            "lastName": "",
-            "dp": "..assets/images/younews.png",
-            "userId": "younews",
-            "password": "12345",
-			"id": 7,
-            "followedUsers": [
-                "younews"
-            ]
+            ],
+            "key": "image"
         }
     ]
 }

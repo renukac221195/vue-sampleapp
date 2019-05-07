@@ -16,6 +16,9 @@ export const loadAllUsersUpdates = {
         },
         filterFeeds(state) {
             return state.newFeedList;
+        },
+        clickedFeed(state) {
+            return state.feeds;
         }
     },
     actions: {
@@ -37,6 +40,15 @@ export const loadAllUsersUpdates = {
                     })
             })
         },
+        goToFeeds: (context, url) => {
+            return new Promise((resolve) => {
+                callService(url)
+                    .then((response) => {
+                        resolve(response);
+                        context.commit('goToFeeds', response.data.feeds);
+                    })
+            })
+        }
     },
     mutations: {
         fetchAllUserFeeds: (state, response) => {
@@ -44,6 +56,9 @@ export const loadAllUsersUpdates = {
         },
         fetchTypeOfFeeds: (state, response) => {
             state.newFeedList = response;
+        },
+        goToFeeds: (state, response) => {
+            state.feeds = response;
         }
     }
 }

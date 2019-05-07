@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <app-header></app-header>
+    <app-header v-if="checkUser.length > 0"></app-header>
     <v-container>
       <router-view></router-view>
     </v-container>
-    <app-footer></app-footer>
+    <app-footer v-if="checkUser.length > 0"></app-footer>
   </v-app>
 </template>
 
@@ -20,12 +20,21 @@ export default {
   },
   data() {
     return {
-      flag: false
+      
     }
   },
-  methods: {
-
+  computed: {
+    checkUser() {
+      console.log(this.$store.getters.userLogin);
+      
+      return this.$store.getters.userLogin;
+    }
   }
+  // methods: {
+  //   onLogin() {
+  //     this.$store.dispatch("onLogin","./static/Users.json");
+  //   }
+  // }
 }
 </script>
 
