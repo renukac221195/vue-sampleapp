@@ -10,8 +10,7 @@
             "followedUsers": [
                 "natgeo",
                 "tripoto"
-            ],
-            "key": "image"
+            ]
         },
         {
             "name": "Eric",
@@ -24,8 +23,7 @@
                 "natgeo",
                 "tripoto",
                 "younews"
-            ],
-            "key": "image"
+            ]
         },
         {
             "name": "Elon",
@@ -37,8 +35,7 @@
             "followedUsers": [
                 "yourstory",
                 "younews"
-            ],
-            "key": "image"
+            ]
         }
     ]
 }

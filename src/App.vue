@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <app-header v-if="checkUser.length > 0"></app-header>
+    <app-header v-if="checkUser"></app-header>
     <v-container>
       <router-view></router-view>
     </v-container>
-    <app-footer v-if="checkUser.length > 0"></app-footer>
+    <app-footer v-if="checkUser"></app-footer>
   </v-app>
 </template>
 
@@ -13,31 +13,29 @@ import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     "app-header": Header,
-    "app-footer": Footer,
+    "app-footer": Footer
   },
   data() {
     return {
-      
-    }
+      show: false
+    };
+  },
+  created() {
+    this.$store.dispatch("onLogin", "./static/Users.json");
   },
   computed: {
     checkUser() {
-      console.log(this.$store.getters.userLogin);
-      
-      return this.$store.getters.userLogin;
+      if (this.$route.name != "LoginPage") {
+        this.show = true;
+      }
+      return this.show;
     }
   }
-  // methods: {
-  //   onLogin() {
-  //     this.$store.dispatch("onLogin","./static/Users.json");
-  //   }
-  // }
-}
+};
 </script>
 
-<style>
-
+<style scoped>
 </style>

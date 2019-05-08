@@ -27,7 +27,7 @@ export const loadUser = {
     },
     mutations: {
         onLogin: (state, response) => {
-            console.log(response);
+            // console.log(response);
             
             state.user = response;
         }
