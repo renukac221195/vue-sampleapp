@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     usernameRules() {
-      return [v => !!v || "E-mail is required"];
+      return [v => !!v || "Username is required"];
     },
     passwordRules() {
       return [v => !!v || "Password is required"];
@@ -93,6 +93,7 @@ export default {
     },
     onCancel() {
       this.username = this.password = "";
+      this.checkbox = false;
     }
   }
 };

@@ -19,6 +19,9 @@ export const loadAllUsersUpdates = {
         },
         clickedFeed(state) {
             return state.feeds;
+        },
+        getSearchedItem(state) {
+            return state.feeds;
         }
     },
     actions: {
@@ -48,6 +51,16 @@ export const loadAllUsersUpdates = {
                         context.commit('goToFeeds', response.data.feeds);
                     })
             })
+        },
+        fetchSearchedItem: (context, data) => {
+            // console.log(data.str)
+            let info = context.state.newFeedList;
+            let currentSearch = info.map(item => {
+                // console.log(item.type);
+                return item.type.match(data.str);
+            })
+            console.log(currentSearch);
+            context.commit('fetchSearchedItem', currentSearch);
         }
     },
     mutations: {
@@ -58,6 +71,9 @@ export const loadAllUsersUpdates = {
             state.newFeedList = response;
         },
         goToFeeds: (state, response) => {
+            state.feeds = response;
+        },
+        fetchSearchedItem: (state, response) => {
             state.feeds = response;
         }
     }

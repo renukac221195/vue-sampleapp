@@ -25,7 +25,7 @@
                 <v-card-title>
                   <div>
                     <span class="grey--text">
-                      <v-avatar size="36px">
+                      <v-avatar size="46px">
                         <img :src="item.dp" :alt="item.type">
                       </v-avatar>
                     </span>
@@ -107,6 +107,7 @@ export default {
       return this.$store.getters.clickedFeed;
     },
     filterFeeds() {
+      // return this.$store.getters.filterFeeds;            //Alternative
       return this.allFeedData;
     }
   },
