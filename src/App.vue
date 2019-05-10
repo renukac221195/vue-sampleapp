@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <app-header></app-header>
+    <app-header v-if="$route.name != 'LoginPage'"></app-header>
     <v-container>
       <router-view></router-view>
     </v-container>
-    <app-footer></app-footer>
+    <app-footer v-if="$route.name != 'LoginPage'"></app-footer>
   </v-app>
 </template>
 
@@ -13,22 +13,39 @@ import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     "app-header": Header,
-    "app-footer": Footer,
+    "app-footer": Footer
   },
   data() {
     return {
-      flag: false
-    }
+      show: false
+    };
   },
-  methods: {
+  created() {
+    this.$store.dispatch("onLogin", "./static/Users.json").then(() => {
+      let a = window.localStorage.username;
+      console.log(a);
+      if (window.localStorage.username) {
+        let currentUser = localStorage.getItem("username");
 
+        this.$store.dispatch("setCurrentUser", currentUser);
+      } else {
+        this.$router.push("/");
+      }
+    });
+  },
+  computed: {
+    checkUser() {
+      if (this.$route.name != "LoginPage") {
+        this.show = true;
+      }
+      return this.show;
+    }
   }
-}
+};
 </script>
 
 <style>
-
 </style>
