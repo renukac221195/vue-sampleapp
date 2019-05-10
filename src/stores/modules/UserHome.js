@@ -53,14 +53,37 @@ export const loadAllUsersUpdates = {
             })
         },
         fetchSearchedItem: (context, data) => {
-            // console.log(data.str)
-            let info = context.state.newFeedList;
-            let currentSearch = info.map(item => {
-                // console.log(item.type);
-                return item.type.match(data.str);
-            })
-            console.log(currentSearch);
-            context.commit('fetchSearchedItem', currentSearch);
+            let newFeedList = [];
+            let separateTypeSearch = [];
+            let info = context.state.newFeedList.pages;
+            console.log(context.state.newFeedList,"1", info);
+            let searchedData = info.filter(f=>f.title.indexOf(data.str)>-1);
+
+            console.log(searchedData)
+            // let temp = null;
+            // let currentSearch = info.map(item => {
+            //     return item.type.match(data.str);
+            // })
+            
+            // separateTypeSearch = info.filter(item => {
+            //     let feedSearch = item.pages;
+            //     console.log("2", feedSearch);
+            //     return feedSearch.forEach(element => {
+            //         temp = element.title.match(data.str);
+                    
+            //         return element.title.match(data.str);
+            //         // if (item.pages != undefined) {
+            //         //     console.log("3", data.str);
+            //         //     separateTypeSearch.push(item);
+            //         // }
+            //     // }
+            //     })
+                // return item.pages;
+            // });
+        //     console.log(temp)
+        //     newFeedList = separateTypeSearch;
+        //     console.log("4", newFeedList);
+        //     context.commit('fetchSearchedItem', newFeedList);
         }
     },
     mutations: {

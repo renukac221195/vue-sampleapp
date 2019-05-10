@@ -11,11 +11,11 @@
         single-line
         hide-details
       ></v-text-field>
-      <template>
+      <!-- <template>
         <v-list-tile v-for="item in getSearchedItem" :key="item.id">
           <v-list-tile-title>{{ item }}</v-list-tile-title>
         </v-list-tile>
-      </template>
+      </template> -->
       <v-alert
         slot="no-results"
         :value="true"
