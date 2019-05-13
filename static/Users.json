@@ -40,7 +40,7 @@
         {
             "name": "Your Story",
             "lastName": "",
-            "dp": "static/images/yourstory.jpeg",
+            "dp": "static/images/yourstory.png",
             "userId": "yourstory",
             "password": "12345",
 			"id": 4,

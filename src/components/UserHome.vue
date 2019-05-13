@@ -8,7 +8,13 @@
               <v-toolbar color="teal" dark>
                 <v-toolbar-title>Feeds</v-toolbar-title>
               </v-toolbar>
-
+              <!-- <v-list subheader>
+                <v-list-tile @click="changeType(type)">
+                  <v-list-tile-content>
+                    <v-list-tile-title>All Feeds {{feedType}}</v-list-tile-title>
+                  </v-list-tile-content>
+                  </v-list-tile>
+              </v-list> -->
               <v-list subheader v-for="type in types" :key="type">
                 <v-list-tile @click="changeType(type)">
                   <v-list-tile-content>
@@ -20,15 +26,15 @@
           </v-flex>
           <v-flex xs10>
             <v-card class="my-3" v-for="feed in feeds" :key="feed.id">
-              <v-card-title>
+              <v-card-title primary-title>
                 <div>
                   <span class="grey--text">
-                    <v-avatar size="36px">
-                      <img :src="feed.dummyimage" :alt="feed.name">
+                    <v-avatar size="46px">
+                      <img :src="getUserInfo(feed).dp" :alt="getUserInfo(feed).name">
                     </v-avatar>
                   </span>
                   <span>
-                    <strong>{{ feed.type }}</strong> uploaded a photo.
+                    <strong class="blue--text">{{ feed.type }}</strong> uploaded a photo.
                   </span>
                   <br>
                 </div>
@@ -48,8 +54,9 @@
               <v-divider></v-divider>
               <v-card-actions>
                 <v-btn flat color="blue">Like</v-btn>
-                <v-btn flat color="blue">Comment</v-btn>
+                <v-btn flat color="blue" @click="flag = true">Comment</v-btn>
               </v-card-actions>
+              <v-text-field multi-line v-if="flag" id="testing" name="input-1"></v-text-field>
             </v-card>
           </v-flex>
         </v-layout>
@@ -63,7 +70,8 @@ export default {
   data() {
     return {
       feedType: "All",
-      types: []
+      types: [],
+      flag: false
     };
   },
   created() {
@@ -87,19 +95,21 @@ export default {
         );
       }
     },
-    getImageUrl(img) {
-      return require(`${img}`);
+    userLogin() {
+      return this.$store.getters.userLogin;
     }
-    // getUserInfo(feed){
-    //   From store userlist find userId of feed
-    //   create object {
-    //     dp:
-    //     f name
-    //     l name
-    //   }
-    // }
   },
   methods: {
+    getUserInfo(feed) {
+      let temp = {};
+      this.userLogin.map(u => {
+        if (u.id == feed.userId) {
+          temp = u;
+          return u;
+        }
+      });
+      return temp;
+    },
     changeType(type) {
       this.feedType = type;
     }

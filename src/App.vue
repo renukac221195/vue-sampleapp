@@ -25,8 +25,6 @@ export default {
   },
   created() {
     this.$store.dispatch("onLogin", "./static/Users.json").then(() => {
-      let a = window.localStorage.username;
-      console.log(a);
       if (window.localStorage.username) {
         let currentUser = localStorage.getItem("username");
 

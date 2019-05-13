@@ -16,7 +16,7 @@
         :value="true"
         color="error"
         icon="warning"
-      >Your search for "{{ search }}" found no results.</v-alert>
+      >Your search for "{{ searchFeeds }}" found no results.</v-alert>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-avatar class="mt-2" size="46px">
@@ -44,30 +44,16 @@ export default {
       this.$router.push("/");
     },
     searchFeeds(searchkey) {
-      console.log(searchkey)
       this.$store.dispatch("searchFeeds",searchkey);
     }
   },
   computed: {
     userLogin() {
-      // console.log(this.$store.getters.userLogin);
-      
       return this.$store.getters.userLogin;
     },
     getCurrentUserData() {
-      // console.log(this.$store.getters.getCurrentUserData);
-
       return this.$store.getters.getCurrentUserData;
     },
-    // currentUserInfo() {
-    //   this.currentUser = localStorage.getItem("username");
-    //   this.currentUserData = this.userLogin.find(element => {
-    //     if (this.currentUser === element.userId) {
-    //       return element;
-    //     }
-    //   });
-    //   return this.currentUserData;
-    // },
   }
 };
 </script>
