@@ -8,13 +8,6 @@
               <v-toolbar color="teal" dark>
                 <v-toolbar-title>Feeds</v-toolbar-title>
               </v-toolbar>
-              <!-- <v-list subheader>
-                <v-list-tile @click="changeType(type)">
-                  <v-list-tile-content>
-                    <v-list-tile-title>All Feeds {{feedType}}</v-list-tile-title>
-                  </v-list-tile-content>
-                  </v-list-tile>
-              </v-list> -->
               <v-list subheader v-for="type in types" :key="type">
                 <v-list-tile @click="changeType(type)">
                   <v-list-tile-content>
@@ -28,8 +21,8 @@
             <v-card class="my-3" v-for="feed in feeds" :key="feed.id">
               <v-card-title primary-title>
                 <div>
-                  <span class="grey--text">
-                    <v-avatar size="46px">
+                  <span>
+                    <v-avatar size="40px">
                       <img :src="getUserInfo(feed).dp" :alt="getUserInfo(feed).name">
                     </v-avatar>
                   </span>
@@ -39,8 +32,8 @@
                   <br>
                 </div>
               </v-card-title>
-              <v-card-title>{{feed.title}}</v-card-title>
-              <v-card-media class="white--text" height="500px">
+              <v-card-title class="black--text">{{feed.title}}</v-card-title>
+              <v-card-media height="500px">
                 <img :src="feed.image" :alt="feed.image">
                 <v-container fill-height fluid>
                   <v-layout fill-height>

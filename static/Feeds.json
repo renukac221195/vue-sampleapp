@@ -2,7 +2,7 @@
     "feeds": [
         {
             "id": 1,
-            "type": "news media",
+            "type": "News Media",
             "userId": 4,
             "title": "It's the end of an era as former Google chief Eric Schmidt leaves Alphabet's board",
             "image": "static/images/yourstory/feed_1.png",
@@ -10,7 +10,7 @@
         },
         {
             "id": 2,
-            "type": "news media",
+            "type": "News Media",
             "userId": 4,
             "title": "India is a challenging market in short term: Apple CEO Tim Cook",
             "image": "static/images/yourstory/feed_2.png",
@@ -18,7 +18,7 @@
         },
         {
             "id": 3,
-            "type": "news media",
+            "type": "News Media",
             "userId": 4,
             "title": "[Funding alert] BlackBuck raises $150 M in Series D led by Goldman Sachs Investment Partners and Accel",
             "image": "static/images/yourstory/feed_3.png",
@@ -26,7 +26,7 @@
         },
         {
             "id": 4,
-            "type": "news media",
+            "type": "News Media",
             "userId": 4,
             "title": "A fresh design for Facebook, interoperable Messenger app, and business catalogue on WhatsApp: key announcements from Day 1 of F8",
             "image": "static/images/yourstory/feed_4.png",
@@ -34,7 +34,7 @@
         },
         {
             "id": 5,
-            "type": "news media",
+            "type": "News Media",
             "userId": 7,
             "title": "Big diplomatic win for India, Masood Azhar declared international terrorist as China lifts hold",
             "image": "static/images/younews/feed_1.jpg",
@@ -42,7 +42,7 @@
         },
         {
             "id": 6,
-            "type": "news media",
+            "type": "News Media",
             "userId": 7,
             "title": "PM Modi's Efforts Led To UN Ban On Masood Azhar, Says Amit Shah",
             "image": "static/images/younews/feed_2.jpg",
@@ -50,7 +50,7 @@
         },
         {
             "id": 7,
-            "type": "travel",
+            "type": "Travel",
             "userId": 6,
             "title": "Here Are 20 Hilarious Memes That Every Indian Traveller Will Relate To",
             "image": "static/images/tripoto/feed_1.PNG",
@@ -58,7 +58,7 @@
         },
         {
             "id": 8,
-            "type": "travel",
+            "type": "Travel",
             "userId": 6,
             "title": "Stunning Luxury Hotels In Mumbai",
             "image": "static/images/tripoto/feed_2.jpg",
@@ -66,7 +66,7 @@
         },
         {
             "id": 9,
-            "type": "travel",
+            "type": "Travel",
             "userId": 6,
             "title": "20 Luxurious Hotels in Goa for your Next Goa Trip",
             "image": "static/images/tripoto/feed_3.jpg",
@@ -74,7 +74,7 @@
         },
         {
             "id": 10,
-            "type": "photography",
+            "type": "Photography",
             "userId": 5,
             "title": "Airport Security (NAT GEO INVESTIGATES)",
             "image": "static/images/natgeo/feed_1.jpg",
@@ -82,7 +82,7 @@
         },
         {
             "id": 11,
-            "type": "photography",
+            "type": "Photography",
             "userId": 5,
             "title": "Hostile Planet",
             "image": "static/images/natgeo/feed_2.jpg",
@@ -90,7 +90,7 @@
         },
         {
             "id": 12,
-            "type": "photography",
+            "type": "Photography",
             "userId": 5,
             "title": "Why travel, when you can explore",
             "image": "static/images/natgeo/feed_3.jpg",
@@ -98,7 +98,7 @@
         },
         {
             "id": 13,
-            "type": "photography",
+            "type": "Photography",
             "userId": 5,
             "title": "Egypt with the World’s Greatest Explorer",
             "image": "static/images/natgeo/feed_4.png",
@@ -106,7 +106,7 @@
         },
         {
             "id": 14,
-            "type": "photography",
+            "type": "Photography",
             "userId": 5,
             "title": "Brain Games",
             "image": "static/images/natgeo/feed_5.jpg",
