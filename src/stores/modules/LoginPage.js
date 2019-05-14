@@ -14,16 +14,20 @@ export const loadUser = {
       return state.user;
     },
     getCurrentUserData(state) {
-        return state.currentUserData;
+      return state.currentUserData;
     }
   },
   actions: {
-    onLogin(context, url) {
-      return new Promise((resolve) => {
+    fetchUserList({
+      commit
+    }, url) {
+      return new Promise((resolve,reject) => {
         callService(url)
           .then((response) => {
             resolve(response);
-            context.commit('onLogin', response.data.user);
+            commit('fetchUserList', response.data.user);
+          }).catch((error) => {
+            reject(error);
           })
       })
     },
@@ -38,7 +42,7 @@ export const loadUser = {
     }
   },
   mutations: {
-    onLogin: (state, response) => {
+    fetchUserList: (state, response) => {
       state.user = response;
     },
     setCurrentUser: (state, response) => {

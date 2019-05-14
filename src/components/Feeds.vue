@@ -17,13 +17,14 @@
               </v-list>
             </v-card>
           </v-flex>
+          <v-divider></v-divider>
           <v-flex xs10>
             <v-card class="my-3" v-for="feed in feeds" :key="feed.id">
               <v-card-title primary-title>
                 <div>
                   <span>
                     <v-avatar size="40px">
-                      <img :src="getUserInfo(feed).dp" :alt="getUserInfo(feed).name">
+                      <img :src="callUserInfo(feed).dp" :alt="callUserInfo(feed).name">
                     </v-avatar>
                   </span>
                   <span>
@@ -33,17 +34,17 @@
                 </div>
               </v-card-title>
               <v-card-title class="black--text">{{feed.title}}</v-card-title>
-              <v-card-media height="500px">
-                <img :src="feed.image" :alt="feed.image">
+              <v-card-media height="500px" @dblclick="openFeed(feed)">
+                <div class="div">
+                  <img class="image" :src="feed.image" :alt="feed.image">
+                </div>
+                  
                 <v-container fill-height fluid>
                   <v-layout fill-height>
                     <v-flex xs12 align-end flexbox></v-flex>
                   </v-layout>
                 </v-container>
               </v-card-media>
-              <v-card-actions>
-                <p>{{ feed.description }}</p>
-              </v-card-actions>
               <v-divider></v-divider>
               <v-card-actions>
                 <v-btn flat color="blue">Like</v-btn>
@@ -59,6 +60,8 @@
 </template>
 
 <script>
+import {getUserInfo} from '../UserInfo.js';
+
 export default {
   data() {
     return {
@@ -73,6 +76,7 @@ export default {
         .dispatch("fetchAllUserFeeds", "/static/Feeds.json")
         .then(response => {
           this.types = [...new Set(response.map(item => item.type))];
+          this.types.unshift("All");
         });
     } else {
       this.$router.push("/");
@@ -93,19 +97,28 @@ export default {
     }
   },
   methods: {
-    getUserInfo(feed) {
-      let temp = {};
-      this.userLogin.map(u => {
-        if (u.id == feed.userId) {
-          temp = u;
-          return u;
-        }
-      });
-      return temp;
-    },
     changeType(type) {
       this.feedType = type;
+    },
+    openFeed(feed) {
+    this.$store.dispatch("fetchDoubleClickedFeed", feed);
+      this.$router.push("/OneFeed");
+    },
+    callUserInfo(feed) {
+      return getUserInfo(feed, this.userLogin);
     }
   }
 };
 </script>
+
+<style scoped>
+.div {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.image {
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+</style>

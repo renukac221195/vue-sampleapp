@@ -18,12 +18,16 @@ export const loadAllUsersUpdates = {
     }
   },
   actions: {
-    fetchAllUserFeeds(context, url) {
-      return new Promise((resolve) => {
+    fetchAllUserFeeds({
+      commit
+    }, url) {
+      return new Promise((resolve, reject) => {
         callService(url)
           .then((response) => {
             resolve(response.data.feeds);
-            context.commit('fetchFeeds', response.data.feeds);
+            commit('fetchFeeds', response.data.feeds);
+          }).catch((error) => {
+            reject(error);
           })
       })
     },

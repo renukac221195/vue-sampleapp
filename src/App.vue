@@ -24,7 +24,7 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("onLogin", "./static/Users.json").then(() => {
+    this.$store.dispatch("fetchUserList", "./static/Users.json").then(() => {
       if (window.localStorage.username) {
         let currentUser = localStorage.getItem("username");
 

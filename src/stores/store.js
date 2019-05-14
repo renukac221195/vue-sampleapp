@@ -5,13 +5,17 @@ import {
 } from './modules/LoginPage'
 import {
   loadAllUsersUpdates
-} from './modules/UserHome'
+} from './modules/Feeds'
+import {
+  loadDoubleClickedFeed
+} from './modules/OneFeed'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
     loadUser,
-    loadAllUsersUpdates
+    loadAllUsersUpdates,
+    loadDoubleClickedFeed
   }
 })

@@ -77,22 +77,20 @@ export default {
       return [v => !!v || "Password is required"];
     },
     onLogin() {
-      this.userLogin.forEach(element => {
+      this.userLogin.find(element => {
         if (
           element.userId === this.username &&
           element.password === this.password
         ) {
-          this.flag = true;
           localStorage.setItem("username", element.userId);
-          this.$store.dispatch("setCurrentUser", element.userId).then(()=>{
-             this.$router.push("/Feeds");
+          this.$store.dispatch("setCurrentUser", element.userId).then(() => {
+            this.$router.push("/Feeds");
           });
-         
         }
+        // else{
+        //   alert("Invalid User");
+        // }
       });
-      if (this.flag == false) {
-        alert("Invalid User");
-      }
     },
     onCancel() {
       this.username = this.password = "";
