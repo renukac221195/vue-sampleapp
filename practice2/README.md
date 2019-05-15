@@ -1,6 +1,6 @@
-# vue-sample-app
+# vue-practice-assign
 
-> app
+> A Vue.js project
 
 ## Build Setup
 
